@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Shooter — Dodge!</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Space shooter game">
+      <header class="topbar">
+        <div class="title">
+          <h1>Space Shooter</h1>
+          <p class="subtitle">Dodge the enemy ships as long as you can.</p>
+        </div>
+
+        <div class="controls" role="group" aria-label="Game controls">
+          <button id="startBtn" class="btn btn-primary" type="button">Start</button>
+          <button id="restartBtn" class="btn" type="button">Restart</button>
+          <button id="pauseBtn" class="btn" type="button" aria-pressed="false">Pause</button>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="Game stats">
+        <div class="stat">
+          <div class="stat-label">Score</div>
+          <div class="stat-value" id="score">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Best</div>
+          <div class="stat-value" id="best">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Time</div>
+          <div class="stat-value" id="time">0.0s</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Enemy speed</div>
+          <div class="stat-value">
+            <label class="speed-label" for="enemySpeed">
+              <span class="visually-hidden">Enemy speed</span>
+              <select id="enemySpeed" class="speed-select" aria-label="Enemy speed">
+                <option value="0.8">Slow</option>
+                <option value="1.6" selected>Normal</option>
+                <option value="2.6">Fast</option>
+                <option value="4.2">Insane</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Enemy count</div>
+          <div class="stat-value">
+            <label class="speed-label" for="enemyCount">
+              <span class="visually-hidden">Enemy count</span>
+              <select id="enemyCount" class="speed-select" aria-label="Enemy count">
+                <option value="0.7|10">Few</option>
+                <option value="1|18" selected>Normal</option>
+                <option value="1.8|30">Crowded</option>
+                <option value="3.0|50">Chaos</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-wrap" aria-label="Game canvas">
+        <div class="game-frame">
+          <canvas id="game" class="game" width="480" height="720" aria-label="Space shooter canvas">
+            Your browser does not support canvas.
+          </canvas>
+
+          <div id="overlay" class="overlay" role="status" aria-live="polite" aria-atomic="true">
+            <div class="overlay-card">
+              <h2 id="overlayTitle">Space Shooter</h2>
+              <p id="overlayText" class="overlay-text">
+                Move with <b>Arrow keys</b> or <b>WASD</b>. Avoid enemy ships.
+              </p>
+              <div class="overlay-actions">
+                <button id="overlayStartBtn" class="btn btn-primary" type="button">Start</button>
+                <button id="overlayRestartBtn" class="btn" type="button">Restart</button>
+              </div>
+              <p class="overlay-hint">
+                Tip: Press <b>P</b> to pause, <b>R</b> to restart.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p class="instructions">
+          How to play: Move your spaceship up/down/left/right. Enemy ships fly from top to bottom. If you get hit,
+          it’s game over.
+        </p>
+      </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
